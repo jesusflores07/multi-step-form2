@@ -1,22 +1,19 @@
-import React, { Component } from 'react'
-import MuiThemeprovider from 'material-ui/styles/MuiThemeProvider'
-import AppBar from 'material-ui/AppBar'
-import TextField from 'material-ui/TextField'
-import RaisedButton from 'material-ui/RaisedButton'
+import React, { Component } from "react";
+import MuiThemeprovider from "@material-ui/styles/ThemeProvider";
+import AppBar from "@material-ui/core/AppBar";
+import TextField from "@material-ui/core/TextField";
+import RaisedButton from "@material-ui/core/Button";
 
+export default class FormUserDetails extends Component {
+  continue = (e) => {
+    e.preventDefault();
+    this.props.nextStep();
+  };
 
-
-export class FormUserDetails extends Component {
-  continue = e => {
-      e.preventDefault();
-      this.props.nextStep();
-  }
-
-  back = e => {
+  back = (e) => {
     e.preventDefault();
     this.props.prevStep();
-  }
-
+  };
 
   render() {
     const { values, handleChange } = this.props;
@@ -24,45 +21,51 @@ export class FormUserDetails extends Component {
     return (
       <MuiThemeprovider>
         <React.Fragment>
-            <AppBar title = 'enter personal details' />
-            <TextField 
-            hintText = 'enter your first name'
-            floatingLabelText = 'first name'
-            onChange={handleChange ('first name')}
-            defaultValue = {values.firstName}
-            />
-            <br />
-            <TextField 
-            hintText = 'enter yout last name'
-            floatingLabelText = 'last name'
-            onChange={handleChange('last name')}
+          <AppBar>enter user details </AppBar>
+          <br />
+          <TextField
+            helperText="enter your first name"
+            variant="outlined"
+            onChange={handleChange("firstName")}
+            defaultValue={values.firstName}
+            size="small"
+          />
+          <br />
+          <TextField
+            variant="outlined"
+            helperText="enter yout last name"
+            onChange={handleChange("lastName")}
             defaultValue={values.lastName}
-            />
-            <TextField 
-            hintText = 'enter your email'
-            floatingLabelText = 'email'
-            onChange={handleChange('email')}
+            size="small"
+          />
+          <br />
+          <TextField
+            variant="outlined"
+            helperText="enter your email"
+            onChange={handleChange("email")}
             defaultValue={values.email}
-            />
-            <br/>
-            <RaisedButton
-            label = 'continue'
-            primary = {true}
-            style = {styles.button}
+            size="small"
+          />
+          <br />
+          <RaisedButton
+            //label = 'continue'
+            //primary = {true}
+            //style = {styles.button}
             onClick={this.continue}
-            />
-
+            variant="contained"
+            color="success"
+          >
+            continuar
+          </RaisedButton>
         </React.Fragment>
       </MuiThemeprovider>
-    )
+    );
   }
 }
 
-const styles = {
+/*const styles = {
     button: {
-        margin: 15
+        margin: 15,
+        border: '1px solid red'
     }
-}
-
-
-export default FormUserDetails
+}*/

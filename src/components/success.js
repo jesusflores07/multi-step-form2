@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import MuiThemeprovider from 'material-ui/styles/MuiThemeProvider'
-import AppBar from 'material-ui/AppBar'
+import MuiThemeprovider from "@material-ui/styles/ThemeProvider";
+import AppBar from "@material-ui/core/AppBar";
+
 
 
 
